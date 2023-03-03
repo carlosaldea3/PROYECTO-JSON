@@ -1,0 +1,25 @@
+{ "ticket":
+  {
+    "transaccion":{
+    "ID_trans":133,
+    "unidades":3,
+    "precio":3,
+    "fecha": "25/09/2023"
+    },
+    "usuario":{
+    "ID":133,
+    "nombre": "Carlos",
+    "domicilio": "Avenida Parque Central",
+    "email": "carlosaldea33@gmail.com",
+    "telefono": 675432443
+    },
+    "libro":{
+    "titulo": "Don Quijote",
+    "tipo": "Poesias",
+    "editorial": "Grupo Planeta",
+    "año": 1990,
+    "idioma": "español",
+    "ISBN": 345234
+    }
+  }
+}
