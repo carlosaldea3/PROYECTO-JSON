@@ -1,7 +1,7 @@
 const header = document.querySelector('header');
 const section = document.querySelector('section');
 
-const requestURL = './superheroes.json';
+const requestURL = './ticket.json';
 
 const request = new XMLHttpRequest();
 
@@ -11,52 +11,56 @@ request.responseType = 'json';
 request.send();
 
 request.onload = function() {
-  const superHeroes = request.response;
-  populateHeader(superHeroes);
-  showHeroes(superHeroes);
+  const ticket = request.response;
+  populateHeader(ticket);
+  showContent(ticket);
 }
 
 function populateHeader(jsonObj) {
-  const myH1 = document.createElement('h1');
-  myH1.textContent = jsonObj['squadName'];
-  header.appendChild(myH1);
+  //Datos Ticket
 
-  const myPara = document.createElement('p');
-  myPara.textContent = 'Hometown: ' + jsonObj['homeTown'] + ' // Formed: ' + jsonObj['formed'];
-  header.appendChild(myPara);
-}
 
-function showHeroes(jsonObj) {
-  const heroes = jsonObj['members'];
 
-  for (var i = 0; i < heroes.length; i++) {
-    const myArticle = document.createElement('article');
-    const myH2 = document.createElement('h2');
-    const myPara1 = document.createElement('p');
-    const myPara2 = document.createElement('p');
-    const myPara3 = document.createElement('p');
-    const myList = document.createElement('ul');
+  const div = document.createElement('div');
+  div.classList.add('cacatua');
 
-    myH2.textContent = heroes[i].name;
-    myPara1.textContent = 'Secret identity: ' + heroes[i].secretIdentity;
-    myPara2.textContent = 'Age: ' + heroes[i].age;
-    myPara3.textContent = 'Superpowers:';
+  const myH1 = document.createElement('div');
+  myH1.textContent = 'ID: ' + jsonObj.ticket.transaccion['ID_trans'];
+  div.appendChild(myH1);
+  myH1.classList.add('encabezado');
 
-    const superPowers = heroes[i].powers;
-    for (var j = 0; j < superPowers.length; j++) {
-      const listItem = document.createElement('li');
-      listItem.textContent = superPowers[j];
-      myList.appendChild(listItem);
-    }
 
-    myArticle.appendChild(myH2);
-    myArticle.appendChild(myPara1);
-    myArticle.appendChild(myPara2);
-    myArticle.appendChild(myPara3);
-    myArticle.appendChild(myList);
+  const myH11 = document.createElement('div');
+  myH11.textContent = ' Fecha: ' + jsonObj.ticket.transaccion['fecha'];
+  div.appendChild(myH11);
+  myH11.classList.add('encabezado');
+  header.appendChild(div);
 
-    section.appendChild(myArticle);
-  }
+  //Separador
+  const asterisco = document.createElement('h4');
+  asterisco.textContent = '**************************************************';
+  header.appendChild(asterisco);
+
+  //Datos Usuario
+  const myH2 = document.createElement('h2');
+  myH2.textContent = 'ID: ' + jsonObj.ticket.usuario['ID'] + ' Nombre: ' + jsonObj.ticket.usuario['nombre'] + ' Email: ' + jsonObj.ticket.usuario['email'] + ' Teléfono: ' + jsonObj.ticket.usuario['telefono'];
+  header.appendChild(myH2);
+
+  //Detalles del libro
+  const myH4 = document.createElement('h4');
+  myH4.textContent = 'ISBN: ' + jsonObj.ticket.libro['ISBN'] + ' Titulo: ' + jsonObj.ticket.libro['titulo'] + ' Editorial: ' + jsonObj.ticket.libro['editorial'] + ' Tipo: ' + jsonObj.ticket.libro['tipo'];
+  header.appendChild(myH4);
+
+  //Separador
+  const asterisco2 = document.createElement('h4');
+  asterisco2.textContent = '**************************************************';
+  header.appendChild(asterisco2);
+
+  //Dirección usuario
+  const myH3 = document.createElement('h3');
+  myH3.textContent = 'Dirección: ' + jsonObj.ticket.usuario['domicilio'];
+  header.appendChild(myH3);
+
 }
 
 request.responseType = 'json';
@@ -66,8 +70,8 @@ request.responseType = 'text'; // recibimos una cadena de tipo "string"
 request.send();
 
 request.onload = function() {
-  const superHeroesText = request.response; // cogemos la cadena de response
-  const superHeroes = JSON.parse(superHeroesText); // la convertimos a objeto
-  populateHeader(superHeroes);
-  showHeroes(superHeroes);
+  const ticketText = request.response; // cogemos la cadena de response
+  const ticket = JSON.parse(ticketText); // la convertimos a objeto
+  populateHeader(ticket);
+  showContent(ticket);
 }

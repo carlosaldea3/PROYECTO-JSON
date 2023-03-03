@@ -1,48 +1,37 @@
-/* || general styles */
-
-html {
-  font-family: 'helvetica neue', helvetica, arial, sans-serif;
-}
-
 body {
   width: 800px;
   margin: 0 auto;
 }
 
-h1, h2 {
-  font-family: 'Faster One', cursive;
+*{
+font-family: 'Times New Roman', Times, serif;
 }
 
-/* header styles */
-
+.cacatua{
+display: flex;
+flex-direction: column;
+gap: 1rem;
+margin: 3rem 0;
+text-align: center;
+font-style: oblique;
+background-color: rgb(228, 227, 227);
+}
 h1 {
-  font-size: 4rem;
+  font-size: 6rem;
   text-align: center;
 }
 
-header p {
-  font-size: 1.3rem;
-  font-weight: bold;
-  text-align: center;
+h2, h4{
+font-size: 2rem;
 }
 
-/* section styles */
-
-section article {
-  width: 33%;
-  float: left;
+h3{
+font-size: 1.2rem;
+text-align: end;
+font-weight: bolder;
 }
 
-section p {
-  margin: 5px 0;
+.encabezado{
+font-size: 5rem;
 }
 
-section ul {
-  margin-top: 0;
-}
-
-h2 {
-  font-size: 2.5rem;
-  letter-spacing: -5px;
-  margin-bottom: 10px;
-}
